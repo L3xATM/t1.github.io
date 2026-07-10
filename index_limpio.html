@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase Interactiva - Budismo</title>
+    <style>
+        body { margin: 0; padding: 0; display: flex; flex-direction: column; height: 100vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; overflow: hidden; }
+        .slides-container { flex: 1; position: relative; display: flex; justify-content: center; align-items: center; text-align: center; padding: 40px; }
+        .slide { display: none; width: 100%; max-width: 1200px; animation: fadeIn 0.3s ease; }
+        .slide.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* TAMAÑOS DE TEXTO DEFINITIVOS Y CUIDADOS */
+        .texto-esp-solo { font-size: 5vh; font-weight: bold; color: #000; line-height: 1.4; padding: 0 5%; }
+        .texto-esp-doble { font-size: 4vh; font-weight: bold; color: #000; line-height: 1.4; padding: 0 5%; margin-bottom: 4vh; }
+        .texto-zh { font-size: 6.5vh; font-family: 'KaiTi', serif; color: #000; line-height: 1.4; padding: 0 5%; }
+        .numero-diapo { position: absolute; bottom: 20px; left: 0; width: 100%; text-align: center; font-size: 2.5vh; color: #888888; font-weight: bold; }
+        
+        /* BARRA INFERIOR DE BOTONES (SÚPER LIMPIA) */
+        .controls { background-color: #f1f3f5; border-top: 2px solid #dee2e6; height: 80px; display: flex; justify-content: center; align-items: center; gap: 30px; box-shadow: 0 -4px 10px rgba(0,0,0,0.05); z-index: 100; }
+        .btn { font-size: 22px; font-weight: bold; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn-nav { background-color: #495057; color: white; }
+        .btn-nav:hover { background-color: #343a40; transform: translateY(-2px); }
+        .btn-play { background-color: #28a745; color: white; padding: 12px 40px; }
+        .btn-play:hover { background-color: #218838; transform: translateY(-2px); }
+        
+        /* Ocultar en pantallas super pequeñas */
+        @media (max-height: 400px) { .controls { height: 60px; } .btn { font-size: 16px; padding: 8px 20px;} }
+    </style>
+</head>
+<body>
+    <div class="slides-container">
+        
+                <div class="slide" id="slide-0">
+                    <div class="texto-esp-solo">MANUAL DE INTRODUCCIÓN AL BUDISMO</div>
+                    <div class="numero-diapo">001</div>
+                    <audio id="audio-0" src="audios/audio_0.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-1">
+                    <div class="texto-esp-doble">MANUAL DE INTRODUCCIÓN AL BUDISMO</div>
+                    <div class="texto-zh">学佛入门手册</div>
+                    <div class="numero-diapo">001-B</div>
+                    <audio id="audio-1" src="audios/audio_0.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-2">
+                    <div class="texto-esp-solo">COMUNIDAD BUDISTA HAI HUI SHAN</div>
+                    <div class="numero-diapo">002</div>
+                    <audio id="audio-2" src="audios/audio_2.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-3">
+                    <div class="texto-esp-doble">COMUNIDAD BUDISTA HAI HUI SHAN</div>
+                    <div class="texto-zh">海會山西班牙佛教會</div>
+                    <div class="numero-diapo">002-B</div>
+                    <audio id="audio-3" src="audios/audio_2.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-4">
+                    <div class="texto-esp-solo">¡Empieza a aprender budismo y emprende el camino de la felicidad!</div>
+                    <div class="numero-diapo">003</div>
+                    <audio id="audio-4" src="audios/audio_4.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-5">
+                    <div class="texto-esp-doble">¡Empieza a aprender budismo y emprende el camino de la felicidad!</div>
+                    <div class="texto-zh">学佛从这里开始，幸福从这里起航！</div>
+                    <div class="numero-diapo">003-B</div>
+                    <audio id="audio-5" src="audios/audio_4.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-6">
+                    <div class="texto-esp-solo">uno. CONCEPTOS BÁSICOS DEL BUDISMO</div>
+                    <div class="numero-diapo">004</div>
+                    <audio id="audio-6" src="audios/audio_6.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-7">
+                    <div class="texto-esp-doble">uno. CONCEPTOS BÁSICOS DEL BUDISMO</div>
+                    <div class="texto-zh">一、佛门小常识</div>
+                    <div class="numero-diapo">004-B</div>
+                    <audio id="audio-7" src="audios/audio_6.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-8">
+                    <div class="texto-esp-solo">01. ¿Qué son las Tres Joyas del Budismo?</div>
+                    <div class="numero-diapo">005</div>
+                    <audio id="audio-8" src="audios/audio_8.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-9">
+                    <div class="texto-esp-doble">01. ¿Qué son las Tres Joyas del Budismo?</div>
+                    <div class="texto-zh">01. 什么是佛门三宝？</div>
+                    <div class="numero-diapo">005-B</div>
+                    <audio id="audio-9" src="audios/audio_8.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-10">
+                    <div class="texto-esp-solo">Las Tres Joyas del Budismo son: Buda, Dharma y Sangha.</div>
+                    <div class="numero-diapo">006</div>
+                    <audio id="audio-10" src="audios/audio_10.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-11">
+                    <div class="texto-esp-doble">Las Tres Joyas del Budismo son: Buda, Dharma y Sangha.</div>
+                    <div class="texto-zh">佛门三宝是：佛、法、僧。</div>
+                    <div class="numero-diapo">006-B</div>
+                    <audio id="audio-11" src="audios/audio_10.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-12">
+                    <div class="texto-esp-solo">Buda se refiere a quien ha logrado un despertar completo,</div>
+                    <div class="numero-diapo">007</div>
+                    <audio id="audio-12" src="audios/audio_12.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-13">
+                    <div class="texto-esp-doble">Buda se refiere a quien ha logrado un despertar completo,</div>
+                    <div class="texto-zh">佛，梵语佛陀耶，</div>
+                    <div class="numero-diapo">007-B</div>
+                    <audio id="audio-13" src="audios/audio_12.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-14">
+                    <div class="texto-esp-solo">o un conocimiento absoluto de la verdad del universo.</div>
+                    <div class="numero-diapo">008</div>
+                    <audio id="audio-14" src="audios/audio_14.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-15">
+                    <div class="texto-esp-doble">o un conocimiento absoluto de la verdad del universo.</div>
+                    <div class="texto-zh">翻译为圆满觉悟宇宙真相的人。</div>
+                    <div class="numero-diapo">008-B</div>
+                    <audio id="audio-15" src="audios/audio_14.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-16">
+                    <div class="texto-esp-solo">Dharma hace referencia a las leyes que rigen todos los fenómenos existentes.</div>
+                    <div class="numero-diapo">009</div>
+                    <audio id="audio-16" src="audios/audio_16.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-17">
+                    <div class="texto-esp-doble">Dharma hace referencia a las leyes que rigen todos los fenómenos existentes.</div>
+                    <div class="texto-zh">法，梵语达摩耶，翻译为轨持，意思是一切万物的现象和规律。</div>
+                    <div class="numero-diapo">009-B</div>
+                    <audio id="audio-17" src="audios/audio_16.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-18">
+                    <div class="texto-esp-solo">Podría considerarse el manual de instrucciones sobre la verdad del universo.</div>
+                    <div class="numero-diapo">010</div>
+                    <audio id="audio-18" src="audios/audio_18.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-19">
+                    <div class="texto-esp-doble">Podría considerarse el manual de instrucciones sobre la verdad del universo.</div>
+                    <div class="texto-zh">是宇宙人生真相的说明书。</div>
+                    <div class="numero-diapo">010-B</div>
+                    <audio id="audio-19" src="audios/audio_18.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-20">
+                    <div class="texto-esp-solo">Sangha se refiere a la comunidad budista,</div>
+                    <div class="numero-diapo">011</div>
+                    <audio id="audio-20" src="audios/audio_20.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-21">
+                    <div class="texto-esp-doble">Sangha se refiere a la comunidad budista,</div>
+                    <div class="texto-zh">僧，梵语僧伽耶，翻译为和合众，</div>
+                    <div class="numero-diapo">011-B</div>
+                    <audio id="audio-21" src="audios/audio_20.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-22">
+                    <div class="texto-esp-solo">que se dedica al aprendizaje y a la divulgación del budismo.</div>
+                    <div class="numero-diapo">012</div>
+                    <audio id="audio-22" src="audios/audio_22.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-23">
+                    <div class="texto-esp-doble">que se dedica al aprendizaje y a la divulgación del budismo.</div>
+                    <div class="texto-zh">指的是随佛出家、以弘扬佛法为事业的专业团队。</div>
+                    <div class="numero-diapo">012-B</div>
+                    <audio id="audio-23" src="audios/audio_22.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-24">
+                    <div class="texto-esp-solo">02. ¿Qué significa Gui Yi en el contexto budista?</div>
+                    <div class="numero-diapo">013</div>
+                    <audio id="audio-24" src="audios/audio_24.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-25">
+                    <div class="texto-esp-doble">02. ¿Qué significa Gui Yi en el contexto budista?</div>
+                    <div class="texto-zh">02. 什么是皈依？</div>
+                    <div class="numero-diapo">013-B</div>
+                    <audio id="audio-25" src="audios/audio_24.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-26">
+                    <div class="texto-esp-solo">Gui, significa retorno; Yi, significa apoyo.</div>
+                    <div class="numero-diapo">014</div>
+                    <audio id="audio-26" src="audios/audio_26.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-27">
+                    <div class="texto-esp-doble">Gui, significa retorno; Yi, significa apoyo.</div>
+                    <div class="texto-zh">皈，是回归；依，是依靠。</div>
+                    <div class="numero-diapo">014-B</div>
+                    <audio id="audio-27" src="audios/audio_26.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-28">
+                    <div class="texto-esp-solo">Gui Yi, el retorno al apoyo fundamental, o la vuelta al refugio básico.</div>
+                    <div class="numero-diapo">015</div>
+                    <audio id="audio-28" src="audios/audio_28.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-29">
+                    <div class="texto-esp-doble">Gui Yi, el retorno al apoyo fundamental, o la vuelta al refugio básico.</div>
+                    <div class="texto-zh">皈依，就是从烦恼中回过头来，</div>
+                    <div class="numero-diapo">015-B</div>
+                    <audio id="audio-29" src="audios/audio_28.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-30">
+                    <div class="texto-esp-solo">Se refiere a salir del sufrimiento y llevar una vida de iluminación, apoyada en las Tres Joyas del Budismo.</div>
+                    <div class="numero-diapo">016</div>
+                    <audio id="audio-30" src="audios/audio_30.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-31">
+                    <div class="texto-esp-doble">Se refiere a salir del sufrimiento y llevar una vida de iluminación, apoyada en las Tres Joyas del Budismo.</div>
+                    <div class="texto-zh">依靠三宝过觉悟的生活。</div>
+                    <div class="numero-diapo">016-B</div>
+                    <audio id="audio-31" src="audios/audio_30.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-32">
+                    <div class="texto-esp-solo">Es un término que también hace referencia al ritual de conversión a la fe budista.</div>
+                    <div class="numero-diapo">017</div>
+                    <audio id="audio-32" src="audios/audio_32.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-33">
+                    <div class="texto-esp-doble">Es un término que también hace referencia al ritual de conversión a la fe budista.</div>
+                    <div class="texto-zh">这是正式注册成为三宝弟子的仪式。</div>
+                    <div class="numero-diapo">017-B</div>
+                    <audio id="audio-33" src="audios/audio_32.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-34">
+                    <div class="texto-esp-solo">03. ¿Hay requisitos para convertirse al budismo?</div>
+                    <div class="numero-diapo">018</div>
+                    <audio id="audio-34" src="audios/audio_34.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-35">
+                    <div class="texto-esp-doble">03. ¿Hay requisitos para convertirse al budismo?</div>
+                    <div class="texto-zh">03. 皈依有要求吗？</div>
+                    <div class="numero-diapo">018-B</div>
+                    <audio id="audio-35" src="audios/audio_34.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-36">
+                    <div class="texto-esp-solo">No hay requisitos para el ritual de conversión.</div>
+                    <div class="numero-diapo">019</div>
+                    <audio id="audio-36" src="audios/audio_36.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-37">
+                    <div class="texto-esp-doble">No hay requisitos para el ritual de conversión.</div>
+                    <div class="texto-zh">皈依没有任何要求。</div>
+                    <div class="numero-diapo">019-B</div>
+                    <audio id="audio-37" src="audios/audio_36.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-38">
+                    <div class="texto-esp-solo">Quien lo pasa se convierte oficialmente en un aprendiz de las Tres Joyas.</div>
+                    <div class="numero-diapo">020</div>
+                    <audio id="audio-38" src="audios/audio_38.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-39">
+                    <div class="texto-esp-doble">Quien lo pasa se convierte oficialmente en un aprendiz de las Tres Joyas.</div>
+                    <div class="texto-zh">皈依之后，就正式注册成为三宝弟子，</div>
+                    <div class="numero-diapo">020-B</div>
+                    <audio id="audio-39" src="audios/audio_38.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-40">
+                    <div class="texto-esp-solo">E inicia su viaje en el estudio del budismo.</div>
+                    <div class="numero-diapo">021</div>
+                    <audio id="audio-40" src="audios/audio_40.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-41">
+                    <div class="texto-esp-doble">E inicia su viaje en el estudio del budismo.</div>
+                    <div class="texto-zh">开启学习佛法的旅程。</div>
+                    <div class="numero-diapo">021-B</div>
+                    <audio id="audio-41" src="audios/audio_40.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-42">
+                    <div class="texto-esp-solo">Tomar refugio en las Tres Joyas.</div>
+                    <div class="numero-diapo">022</div>
+                    <audio id="audio-42" src="audios/audio_42.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-43">
+                    <div class="texto-esp-doble">Tomar refugio en las Tres Joyas.</div>
+                    <div class="texto-zh">皈依三宝</div>
+                    <div class="numero-diapo">022-B</div>
+                    <audio id="audio-43" src="audios/audio_42.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-44">
+                    <div class="texto-esp-solo">Cada paso es volver a casa.</div>
+                    <div class="numero-diapo">023</div>
+                    <audio id="audio-44" src="audios/audio_44.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-45">
+                    <div class="texto-esp-doble">Cada paso es volver a casa.</div>
+                    <div class="texto-zh">每一步都是回家</div>
+                    <div class="numero-diapo">023-B</div>
+                    <audio id="audio-45" src="audios/audio_44.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-46">
+                    <div class="texto-esp-solo">A la vuelta, el tesoro estaba ahí.</div>
+                    <div class="numero-diapo">024</div>
+                    <audio id="audio-46" src="audios/audio_46.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-47">
+                    <div class="texto-esp-doble">A la vuelta, el tesoro estaba ahí.</div>
+                    <div class="texto-zh">归来，宝藏依然常在</div>
+                    <div class="numero-diapo">024-B</div>
+                    <audio id="audio-47" src="audios/audio_46.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-48">
+                    <div class="texto-esp-solo">04. ¿Qué son los rituales de consagración?</div>
+                    <div class="numero-diapo">025</div>
+                    <audio id="audio-48" src="audios/audio_48.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-49">
+                    <div class="texto-esp-doble">04. ¿Qué son los rituales de consagración?</div>
+                    <div class="texto-zh">04. 什么是开光？</div>
+                    <div class="numero-diapo">025-B</div>
+                    <audio id="audio-49" src="audios/audio_48.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-50">
+                    <div class="texto-esp-solo">Los rituales de consagración budistas, en chino kai guang, abrir la luz.</div>
+                    <div class="numero-diapo">026</div>
+                    <audio id="audio-50" src="audios/audio_50.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-51">
+                    <div class="texto-esp-doble">Los rituales de consagración budistas, en chino kai guang, abrir la luz.</div>
+                    <div class="texto-zh">开光是借佛像给我们开光，</div>
+                    <div class="numero-diapo">026-B</div>
+                    <audio id="audio-51" src="audios/audio_50.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-52">
+                    <div class="texto-esp-solo">Toman prestado el gesto de la consagración de la imagen de Buda para iluminarnos a nosotros.</div>
+                    <div class="numero-diapo">027</div>
+                    <audio id="audio-52" src="audios/audio_52.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-53">
+                    <div class="texto-esp-doble">Toman prestado el gesto de la consagración de la imagen de Buda para iluminarnos a nosotros.</div>
+                    <div class="texto-zh">开显自性本有的光明，启发智慧、慈悲。</div>
+                    <div class="numero-diapo">027-B</div>
+                    <audio id="audio-53" src="audios/audio_52.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-54">
+                    <div class="texto-esp-solo">No es Buda ni sus representaciones los que necesitan ser consagrados.</div>
+                    <div class="numero-diapo">028</div>
+                    <audio id="audio-54" src="audios/audio_54.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-55">
+                    <div class="texto-esp-doble">No es Buda ni sus representaciones los que necesitan ser consagrados.</div>
+                    <div class="texto-zh">不是佛像需要开光，</div>
+                    <div class="numero-diapo">028-B</div>
+                    <audio id="audio-55" src="audios/audio_54.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-56">
+                    <div class="texto-esp-solo">Sus rituales sirven para inspirarnos, para que activemos nuestra propia luz, sabiduría y compasión.</div>
+                    <div class="numero-diapo">029</div>
+                    <audio id="audio-56" src="audios/audio_56.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-57">
+                    <div class="texto-esp-doble">Sus rituales sirven para inspirarnos, para que activemos nuestra propia luz, sabiduría y compasión.</div>
+                    <div class="texto-zh">仪式是用来启发我们的哦！</div>
+                    <div class="numero-diapo">029-B</div>
+                    <audio id="audio-57" src="audios/audio_56.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-58">
+                    <div class="texto-esp-solo">05. ¿Hay que ser vegetariano para aprender budismo?</div>
+                    <div class="numero-diapo">030</div>
+                    <audio id="audio-58" src="audios/audio_58.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-59">
+                    <div class="texto-esp-doble">05. ¿Hay que ser vegetariano para aprender budismo?</div>
+                    <div class="texto-zh">05. 学佛一定要吃素吗？</div>
+                    <div class="numero-diapo">030-B</div>
+                    <audio id="audio-59" src="audios/audio_58.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-60">
+                    <div class="texto-esp-solo">No es un requisito obligatorio.</div>
+                    <div class="numero-diapo">031</div>
+                    <audio id="audio-60" src="audios/audio_60.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-61">
+                    <div class="texto-esp-doble">No es un requisito obligatorio.</div>
+                    <div class="texto-zh">不强制要求。</div>
+                    <div class="numero-diapo">031-B</div>
+                    <audio id="audio-61" src="audios/audio_60.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-62">
+                    <div class="texto-esp-solo">Pero el budismo promueve el vegetarianismo y no matar animales.</div>
+                    <div class="numero-diapo">032</div>
+                    <audio id="audio-62" src="audios/audio_62.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-63">
+                    <div class="texto-esp-doble">Pero el budismo promueve el vegetarianismo y no matar animales.</div>
+                    <div class="texto-zh">佛教提倡吃素，不杀生，</div>
+                    <div class="numero-diapo">032-B</div>
+                    <audio id="audio-63" src="audios/audio_62.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-64">
+                    <div class="texto-esp-solo">Su fin es fomentar la compasión hacia todos los seres vivos.</div>
+                    <div class="numero-diapo">033</div>
+                    <audio id="audio-64" src="audios/audio_64.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-65">
+                    <div class="texto-esp-doble">Su fin es fomentar la compasión hacia todos los seres vivos.</div>
+                    <div class="texto-zh">旨在培养众生的慈悲之心。</div>
+                    <div class="numero-diapo">033-B</div>
+                    <audio id="audio-65" src="audios/audio_64.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-66">
+                    <div class="texto-esp-solo">06. ¿Puedo entrar en un templo budista sin conocer sus reglas?</div>
+                    <div class="numero-diapo">034</div>
+                    <audio id="audio-66" src="audios/audio_66.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-67">
+                    <div class="texto-esp-doble">06. ¿Puedo entrar en un templo budista sin conocer sus reglas?</div>
+                    <div class="texto-zh">06. 想去寺院但不懂规矩怎么办？</div>
+                    <div class="numero-diapo">034-B</div>
+                    <audio id="audio-67" src="audios/audio_66.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-68">
+                    <div class="texto-esp-solo">Los budas y bodhisattvas son compasivos en cualquier circunstancia.</div>
+                    <div class="numero-diapo">035</div>
+                    <audio id="audio-68" src="audios/audio_68.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-69">
+                    <div class="texto-esp-doble">Los budas y bodhisattvas son compasivos en cualquier circunstancia.</div>
+                    <div class="texto-zh">诸佛菩萨的慈悲在任何情况下都不打折扣，</div>
+                    <div class="numero-diapo">035-B</div>
+                    <audio id="audio-69" src="audios/audio_68.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-70">
+                    <div class="texto-esp-solo">No hay que sentir demasiada presión por no conocer las reglas de un templo.</div>
+                    <div class="numero-diapo">036</div>
+                    <audio id="audio-70" src="audios/audio_70.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-71">
+                    <div class="texto-esp-doble">No hay que sentir demasiada presión por no conocer las reglas de un templo.</div>
+                    <div class="texto-zh">所以不必为不懂规矩而过度紧张。</div>
+                    <div class="numero-diapo">036-B</div>
+                    <audio id="audio-71" src="audios/audio_70.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-72">
+                    <div class="texto-esp-solo">07. ¿Puedo entrar en un templo si no llevo dinero?</div>
+                    <div class="numero-diapo">037</div>
+                    <audio id="audio-72" src="audios/audio_72.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-73">
+                    <div class="texto-esp-doble">07. ¿Puedo entrar en un templo si no llevo dinero?</div>
+                    <div class="texto-zh">07. 没带钱能进寺院吗？</div>
+                    <div class="numero-diapo">037-B</div>
+                    <audio id="audio-73" src="audios/audio_72.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-74">
+                    <div class="texto-esp-solo">Sí. La función del templo es ser una plataforma de beneficencia pública.</div>
+                    <div class="numero-diapo">038</div>
+                    <audio id="audio-74" src="audios/audio_74.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-75">
+                    <div class="texto-esp-doble">Sí. La función del templo es ser una plataforma de beneficencia pública.</div>
+                    <div class="texto-zh">能。寺院的本质就是佛教文化的公益平台，</div>
+                    <div class="numero-diapo">038-B</div>
+                    <audio id="audio-75" src="audios/audio_74.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-76">
+                    <div class="texto-esp-solo">Que divulga la cultura y las enseñanzas budistas.</div>
+                    <div class="numero-diapo">039</div>
+                    <audio id="audio-76" src="audios/audio_76.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-77">
+                    <div class="texto-esp-doble">Que divulga la cultura y las enseñanzas budistas.</div>
+                    <div class="texto-zh">所做的弘扬佛法是服务性质的事业，</div>
+                    <div class="numero-diapo">039-B</div>
+                    <audio id="audio-77" src="audios/audio_76.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-78">
+                    <div class="texto-esp-solo">No tiene un carácter lucrativo.</div>
+                    <div class="numero-diapo">040</div>
+                    <audio id="audio-78" src="audios/audio_78.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-79">
+                    <div class="texto-esp-doble">No tiene un carácter lucrativo.</div>
+                    <div class="texto-zh">不是交易商业性质的，</div>
+                    <div class="numero-diapo">040-B</div>
+                    <audio id="audio-79" src="audios/audio_78.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-80">
+                    <div class="texto-esp-solo">Así que no hay que preocuparse por no llevar dinero cuando se va a un templo.</div>
+                    <div class="numero-diapo">041</div>
+                    <audio id="audio-80" src="audios/audio_80.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-81">
+                    <div class="texto-esp-doble">Así que no hay que preocuparse por no llevar dinero cuando se va a un templo.</div>
+                    <div class="texto-zh">所以进寺院不用顾忌没带钱。</div>
+                    <div class="numero-diapo">041-B</div>
+                    <audio id="audio-81" src="audios/audio_80.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-82">
+                    <div class="texto-esp-solo">08. ¿Si quemo incienso cuando voy al templo van a cumplirse mis deseos?</div>
+                    <div class="numero-diapo">042</div>
+                    <audio id="audio-82" src="audios/audio_82.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-83">
+                    <div class="texto-esp-doble">08. ¿Si quemo incienso cuando voy al templo van a cumplirse mis deseos?</div>
+                    <div class="texto-zh">08. 去寺院烧高香会更灵吗？</div>
+                    <div class="numero-diapo">042-B</div>
+                    <audio id="audio-83" src="audios/audio_82.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-84">
+                    <div class="texto-esp-solo">¡No! El templo promueve quemar incienso con consciencia medioambiental.</div>
+                    <div class="numero-diapo">043</div>
+                    <audio id="audio-84" src="audios/audio_84.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-85">
+                    <div class="texto-esp-doble">¡No! El templo promueve quemar incienso con consciencia medioambiental.</div>
+                    <div class="texto-zh">不会！寺院提倡环保烧香。</div>
+                    <div class="numero-diapo">043-B</div>
+                    <audio id="audio-85" src="audios/audio_84.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-86">
+                    <div class="texto-esp-solo">Sólo la práctica diaria del budismo va a mejorar nuestra vida.</div>
+                    <div class="numero-diapo">044</div>
+                    <audio id="audio-86" src="audios/audio_86.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-87">
+                    <div class="texto-esp-doble">Sólo la práctica diaria del budismo va a mejorar nuestra vida.</div>
+                    <div class="texto-zh">只有我们常随佛学，佛法在生活中才会真正显灵。</div>
+                    <div class="numero-diapo">044-B</div>
+                    <audio id="audio-87" src="audios/audio_86.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-88">
+                    <div class="texto-esp-solo">09. ¿Hay que leerse todos los textos budistas?</div>
+                    <div class="numero-diapo">045</div>
+                    <audio id="audio-88" src="audios/audio_88.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-89">
+                    <div class="texto-esp-doble">09. ¿Hay que leerse todos los textos budistas?</div>
+                    <div class="texto-zh">09. 佛经那么多，能学得完吗？</div>
+                    <div class="numero-diapo">045-B</div>
+                    <audio id="audio-89" src="audios/audio_88.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-90">
+                    <div class="texto-esp-solo">El canon budista es oceánico e inabarcable para quien quisiera leer todos sus textos.</div>
+                    <div class="numero-diapo">046</div>
+                    <audio id="audio-90" src="audios/audio_90.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-91">
+                    <div class="texto-esp-doble">El canon budista es oceánico e inabarcable para quien quisiera leer todos sus textos.</div>
+                    <div class="texto-zh">海量的佛经，是佛陀为了不同的众生而提供的方便，</div>
+                    <div class="numero-diapo">046-B</div>
+                    <audio id="audio-91" src="audios/audio_90.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-92">
+                    <div class="texto-esp-solo">Sólo tenemos que escoger aquellos que encajen con nuestras dudas y necesidades.</div>
+                    <div class="numero-diapo">047</div>
+                    <audio id="audio-92" src="audios/audio_92.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-93">
+                    <div class="texto-esp-doble">Sólo tenemos que escoger aquellos que encajen con nuestras dudas y necesidades.</div>
+                    <div class="texto-zh">我们只要根据需要选择有缘的，</div>
+                    <div class="numero-diapo">047-B</div>
+                    <audio id="audio-93" src="audios/audio_92.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-94">
+                    <div class="texto-esp-solo">Iniciarnos en lo que nos resulte sencillo y profundizar poco a poco.</div>
+                    <div class="numero-diapo">048</div>
+                    <audio id="audio-94" src="audios/audio_94.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-95">
+                    <div class="texto-esp-doble">Iniciarnos en lo que nos resulte sencillo y profundizar poco a poco.</div>
+                    <div class="texto-zh">由浅入深学习就可以了。</div>
+                    <div class="numero-diapo">048-B</div>
+                    <audio id="audio-95" src="audios/audio_94.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-96">
+                    <div class="texto-esp-solo">10. ¿Aprender budismo afecta a nuestra vida cotidiana?</div>
+                    <div class="numero-diapo">049</div>
+                    <audio id="audio-96" src="audios/audio_96.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-97">
+                    <div class="texto-esp-doble">10. ¿Aprender budismo afecta a nuestra vida cotidiana?</div>
+                    <div class="texto-zh">10. 学佛会影响生活吗？</div>
+                    <div class="numero-diapo">049-B</div>
+                    <audio id="audio-97" src="audios/audio_96.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-98">
+                    <div class="texto-esp-solo">Practicar budismo no tiene por qué dar la vuelta a nuestra vida.</div>
+                    <div class="numero-diapo">050</div>
+                    <audio id="audio-98" src="audios/audio_98.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-99">
+                    <div class="texto-esp-doble">Practicar budismo no tiene por qué dar la vuelta a nuestra vida.</div>
+                    <div class="texto-zh">学佛不会影响生活。</div>
+                    <div class="numero-diapo">050-B</div>
+                    <audio id="audio-99" src="audios/audio_98.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-100">
+                    <div class="texto-esp-solo">El núcleo del budismo no es cambiar un fenómeno objetivo.</div>
+                    <div class="numero-diapo">051</div>
+                    <audio id="audio-100" src="audios/audio_100.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-101">
+                    <div class="texto-esp-doble">El núcleo del budismo no es cambiar un fenómeno objetivo.</div>
+                    <div class="texto-zh">佛法的重点不是改变客观现状，</div>
+                    <div class="numero-diapo">051-B</div>
+                    <audio id="audio-101" src="audios/audio_100.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-102">
+                    <div class="texto-esp-solo">Sino filtrar el exceso de preocupaciones.</div>
+                    <div class="numero-diapo">052</div>
+                    <audio id="audio-102" src="audios/audio_102.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-103">
+                    <div class="texto-esp-doble">Sino filtrar el exceso de preocupaciones.</div>
+                    <div class="texto-zh">而是过滤多余的烦恼，</div>
+                    <div class="numero-diapo">052-B</div>
+                    <audio id="audio-103" src="audios/audio_102.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-104">
+                    <div class="texto-esp-solo">Su objetivo es iluminar nuestro estado anímico y hacer que nos sintamos en calma.</div>
+                    <div class="numero-diapo">053</div>
+                    <audio id="audio-104" src="audios/audio_104.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-105">
+                    <div class="texto-esp-doble">Su objetivo es iluminar nuestro estado anímico y hacer que nos sintamos en calma.</div>
+                    <div class="texto-zh">让心态更光明、更自在，</div>
+                    <div class="numero-diapo">053-B</div>
+                    <audio id="audio-105" src="audios/audio_104.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-106">
+                    <div class="texto-esp-solo">Para vivir una vida más plena y pacífica.</div>
+                    <div class="numero-diapo">054</div>
+                    <audio id="audio-106" src="audios/audio_106.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-107">
+                    <div class="texto-esp-doble">Para vivir una vida más plena y pacífica.</div>
+                    <div class="texto-zh">生活更美满、更祥和。</div>
+                    <div class="numero-diapo">054-B</div>
+                    <audio id="audio-107" src="audios/audio_106.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-108">
+                    <div class="texto-esp-solo">11. ¿Te vuelves raro si practicas budismo?</div>
+                    <div class="numero-diapo">055</div>
+                    <audio id="audio-108" src="audios/audio_108.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-109">
+                    <div class="texto-esp-doble">11. ¿Te vuelves raro si practicas budismo?</div>
+                    <div class="texto-zh">11. 学佛会变得另类吗？</div>
+                    <div class="numero-diapo">055-B</div>
+                    <audio id="audio-109" src="audios/audio_108.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-110">
+                    <div class="texto-esp-solo">¡No! Practicar budismo nos hace ser mejores.</div>
+                    <div class="numero-diapo">056</div>
+                    <audio id="audio-110" src="audios/audio_110.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-111">
+                    <div class="texto-esp-doble">¡No! Practicar budismo nos hace ser mejores.</div>
+                    <div class="texto-zh">不会！学佛会让我们变得更加优秀。</div>
+                    <div class="numero-diapo">056-B</div>
+                    <audio id="audio-111" src="audios/audio_110.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-112">
+                    <div class="texto-esp-solo">Más tolerantes con los otros, más proactivos con las cosas que hacemos, y más optimistas con la vida.</div>
+                    <div class="numero-diapo">057</div>
+                    <audio id="audio-112" src="audios/audio_112.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-113">
+                    <div class="texto-esp-doble">Más tolerantes con los otros, más proactivos con las cosas que hacemos, y más optimistas con la vida.</div>
+                    <div class="texto-zh">对人更加包容，对事更加上进，对生活更加乐观。</div>
+                    <div class="numero-diapo">057-B</div>
+                    <audio id="audio-113" src="audios/audio_112.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-114">
+                    <div class="texto-esp-solo">¡Cuanto más des, menos sufrimiento sentirás!</div>
+                    <div class="numero-diapo">058</div>
+                    <audio id="audio-114" src="audios/audio_114.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-115">
+                    <div class="texto-esp-doble">¡Cuanto más des, menos sufrimiento sentirás!</div>
+                    <div class="texto-zh">付出越来越多，烦恼越来越少，可谓皆大欢喜。</div>
+                    <div class="numero-diapo">058-B</div>
+                    <audio id="audio-115" src="audios/audio_114.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-116">
+                    <div class="texto-esp-solo">2. CONOCER EL TEMPLO BUDISTA</div>
+                    <div class="numero-diapo">059</div>
+                    <audio id="audio-116" src="audios/audio_116.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-117">
+                    <div class="texto-esp-doble">2. CONOCER EL TEMPLO BUDISTA</div>
+                    <div class="texto-zh">二、走进寺院</div>
+                    <div class="numero-diapo">059-B</div>
+                    <audio id="audio-117" src="audios/audio_116.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-118">
+                    <div class="texto-esp-solo">EL TEMPLO, LA GRAN ESCUELA</div>
+                    <div class="numero-diapo">060</div>
+                    <audio id="audio-118" src="audios/audio_118.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-119">
+                    <div class="texto-esp-doble">EL TEMPLO, LA GRAN ESCUELA</div>
+                    <div class="texto-zh">寺院—大学堂</div>
+                    <div class="numero-diapo">060-B</div>
+                    <audio id="audio-119" src="audios/audio_118.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-120">
+                    <div class="texto-esp-solo">Es un lugar de divulgación de las enseñanzas de Buda.</div>
+                    <div class="numero-diapo">061</div>
+                    <audio id="audio-120" src="audios/audio_120.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-121">
+                    <div class="texto-esp-doble">Es un lugar de divulgación de las enseñanzas de Buda.</div>
+                    <div class="texto-zh">寺院是弘扬佛法、</div>
+                    <div class="numero-diapo">061-B</div>
+                    <audio id="audio-121" src="audios/audio_120.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-122">
+                    <div class="texto-esp-solo">Una plataforma de intercambio cultural que difunde energía positiva.</div>
+                    <div class="numero-diapo">062</div>
+                    <audio id="audio-122" src="audios/audio_122.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-123">
+                    <div class="texto-esp-doble">Una plataforma de intercambio cultural que difunde energía positiva.</div>
+                    <div class="texto-zh">传播正能量的、多功能文化共享平台，</div>
+                    <div class="numero-diapo">062-B</div>
+                    <audio id="audio-123" src="audios/audio_122.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-124">
+                    <div class="texto-esp-solo">Un espacio para vivir en el budismo.</div>
+                    <div class="numero-diapo">063</div>
+                    <audio id="audio-124" src="audios/audio_124.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-125">
+                    <div class="texto-esp-doble">Un espacio para vivir en el budismo.</div>
+                    <div class="texto-zh">是佛法的体验店。</div>
+                    <div class="numero-diapo">063-B</div>
+                    <audio id="audio-125" src="audios/audio_124.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-126">
+                    <div class="texto-esp-solo">SALA DE LOS REYES CELESTIALES</div>
+                    <div class="numero-diapo">064</div>
+                    <audio id="audio-126" src="audios/audio_126.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-127">
+                    <div class="texto-esp-doble">SALA DE LOS REYES CELESTIALES</div>
+                    <div class="texto-zh">天王殿</div>
+                    <div class="numero-diapo">064-B</div>
+                    <audio id="audio-127" src="audios/audio_126.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-128">
+                    <div class="texto-esp-solo">LA SALA DE LOS CUATRO REYES CELESTIALES. Primera sala al entrar en un templo budista chino.</div>
+                    <div class="numero-diapo">065</div>
+                    <audio id="audio-128" src="audios/audio_128.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-129">
+                    <div class="texto-esp-doble">LA SALA DE LOS CUATRO REYES CELESTIALES. Primera sala al entrar en un templo budista chino.</div>
+                    <div class="texto-zh">天王殿——寺院的第一座殿堂</div>
+                    <div class="numero-diapo">065-B</div>
+                    <audio id="audio-129" src="audios/audio_128.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-130">
+                    <div class="texto-esp-solo">En la sala, el Bodhisattva Maitreya está consagrado en el medio de la Puerta de la Montaña, puerta principal del templo.</div>
+                    <div class="numero-diapo">066</div>
+                    <audio id="audio-130" src="audios/audio_130.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-131">
+                    <div class="texto-esp-doble">En la sala, el Bodhisattva Maitreya está consagrado en el medio de la Puerta de la Montaña, puerta principal del templo.</div>
+                    <div class="texto-zh">殿内面向山门正中供奉弥勒菩萨，</div>
+                    <div class="numero-diapo">066-B</div>
+                    <audio id="audio-131" src="audios/audio_130.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-132">
+                    <div class="texto-esp-solo">Y en la parte posterior de la sala está consagrado el Bodhisattva Skanda o Weituo.</div>
+                    <div class="numero-diapo">067</div>
+                    <audio id="audio-132" src="audios/audio_132.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-133">
+                    <div class="texto-esp-doble">Y en la parte posterior de la sala está consagrado el Bodhisattva Skanda o Weituo.</div>
+                    <div class="texto-zh">背后供奉韦陀菩萨，</div>
+                    <div class="numero-diapo">067-B</div>
+                    <audio id="audio-133" src="audios/audio_132.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-134">
+                    <div class="texto-esp-solo">Alrededor de ellos se encuentran los Cuatro Reyes Celestiales.</div>
+                    <div class="numero-diapo">068</div>
+                    <audio id="audio-134" src="audios/audio_134.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-135">
+                    <div class="texto-esp-doble">Alrededor de ellos se encuentran los Cuatro Reyes Celestiales.</div>
+                    <div class="texto-zh">四周分列四大天王。</div>
+                    <div class="numero-diapo">068-B</div>
+                    <audio id="audio-135" src="audios/audio_134.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-136">
+                    <div class="texto-esp-solo">BODHISATTVA MAITREYA</div>
+                    <div class="numero-diapo">069</div>
+                    <audio id="audio-136" src="audios/audio_136.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-137">
+                    <div class="texto-esp-doble">BODHISATTVA MAITREYA</div>
+                    <div class="texto-zh">弥勒菩萨</div>
+                    <div class="numero-diapo">069-B</div>
+                    <audio id="audio-137" src="audios/audio_136.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-138">
+                    <div class="texto-esp-solo">El budismo chino suele usar la imagen del Monje del Saco para representar a Maitreya.</div>
+                    <div class="numero-diapo">070</div>
+                    <audio id="audio-138" src="audios/audio_138.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-139">
+                    <div class="texto-esp-doble">El budismo chino suele usar la imagen del Monje del Saco para representar a Maitreya.</div>
+                    <div class="texto-zh">汉传佛教通常采用布袋和尚的形象。</div>
+                    <div class="numero-diapo">070-B</div>
+                    <audio id="audio-139" src="audios/audio_138.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-140">
+                    <div class="texto-esp-solo">Al Monje del Saco de la dinastía Song del Norte, se le considera una reencarnación del Bodhisattva Maitreya.</div>
+                    <div class="numero-diapo">071</div>
+                    <audio id="audio-140" src="audios/audio_140.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-141">
+                    <div class="texto-esp-doble">Al Monje del Saco de la dinastía Song del Norte, se le considera una reencarnación del Bodhisattva Maitreya.</div>
+                    <div class="texto-zh">布袋和尚是弥勒菩萨的化身，于北宋年间应化在中国。</div>
+                    <div class="numero-diapo">071-B</div>
+                    <audio id="audio-141" src="audios/audio_140.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-142">
+                    <div class="texto-esp-solo">Características: Siempre sonríe y su barriga es símbolo de su gran tolerancia.</div>
+                    <div class="numero-diapo">072</div>
+                    <audio id="audio-142" src="audios/audio_142.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-143">
+                    <div class="texto-esp-doble">Características: Siempre sonríe y su barriga es símbolo de su gran tolerancia.</div>
+                    <div class="texto-zh">特点：笑口常开，大肚能容。</div>
+                    <div class="numero-diapo">072-B</div>
+                    <audio id="audio-143" src="audios/audio_142.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-144">
+                    <div class="texto-esp-solo">Mensaje: Engrandece tu corazón como Maitreya y tus problemas desaparecerán.</div>
+                    <div class="numero-diapo">073</div>
+                    <audio id="audio-144" src="audios/audio_144.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-145">
+                    <div class="texto-esp-doble">Mensaje: Engrandece tu corazón como Maitreya y tus problemas desaparecerán.</div>
+                    <div class="texto-zh">启示：打开心量，消除烦恼，</div>
+                    <div class="numero-diapo">073-B</div>
+                    <audio id="audio-145" src="audios/audio_144.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-146">
+                    <div class="texto-esp-solo">Aprender budismo es aprender a vivir una vida feliz.</div>
+                    <div class="numero-diapo">074</div>
+                    <audio id="audio-146" src="audios/audio_146.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-147">
+                    <div class="texto-esp-doble">Aprender budismo es aprender a vivir una vida feliz.</div>
+                    <div class="texto-zh">学佛就是学过幸福的生活。</div>
+                    <div class="numero-diapo">074-B</div>
+                    <audio id="audio-147" src="audios/audio_146.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-148">
+                    <div class="texto-esp-solo">BODHISATTVA SKANDA O WEITUO, jefe de seguridad del Dharma.</div>
+                    <div class="numero-diapo">075</div>
+                    <audio id="audio-148" src="audios/audio_148.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-149">
+                    <div class="texto-esp-doble">BODHISATTVA SKANDA O WEITUO, jefe de seguridad del Dharma.</div>
+                    <div class="texto-zh">韦陀菩萨——护法的总代表保安总司令</div>
+                    <div class="numero-diapo">075-B</div>
+                    <audio id="audio-149" src="audios/audio_148.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-150">
+                    <div class="texto-esp-solo">Características: Suele representarse con la imagen de un joven y apuesto general.</div>
+                    <div class="numero-diapo">076</div>
+                    <audio id="audio-150" src="audios/audio_150.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-151">
+                    <div class="texto-esp-doble">Características: Suele representarse con la imagen de un joven y apuesto general.</div>
+                    <div class="texto-zh">特点：年轻英俊的大将军形象。</div>
+                    <div class="numero-diapo">076-B</div>
+                    <audio id="audio-151" src="audios/audio_150.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-152">
+                    <div class="texto-esp-solo">Mensaje: No importa qué perturbaciones y dificultades provengan del mundo exterior.</div>
+                    <div class="numero-diapo">077</div>
+                    <audio id="audio-152" src="audios/audio_152.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-153">
+                    <div class="texto-esp-doble">Mensaje: No importa qué perturbaciones y dificultades provengan del mundo exterior.</div>
+                    <div class="texto-zh">启示：不论外界有什么干扰与困境，</div>
+                    <div class="numero-diapo">077-B</div>
+                    <audio id="audio-153" src="audios/audio_152.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-154">
+                    <div class="texto-esp-solo">Hay que guardar los pensamientos rectos en el corazón, como un general que se defiende del enemigo.</div>
+                    <div class="numero-diapo">078</div>
+                    <audio id="audio-154" src="audios/audio_154.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-155">
+                    <div class="texto-esp-doble">Hay que guardar los pensamientos rectos en el corazón, como un general que se defiende del enemigo.</div>
+                    <div class="texto-zh">都应当如同将军御敌一般守护自己心中的正念，</div>
+                    <div class="numero-diapo">078-B</div>
+                    <audio id="audio-155" src="audios/audio_154.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-156">
+                    <div class="texto-esp-solo">Mantente joven, vigoroso y optimista.</div>
+                    <div class="numero-diapo">079</div>
+                    <audio id="audio-156" src="audios/audio_156.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-157">
+                    <div class="texto-esp-doble">Mantente joven, vigoroso y optimista.</div>
+                    <div class="texto-zh">保持年轻而乐观的心态。</div>
+                    <div class="numero-diapo">079-B</div>
+                    <audio id="audio-157" src="audios/audio_156.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-158">
+                    <div class="texto-esp-solo">LOS CUATRO REYES CELESTIALES. Protectores del Dharma.</div>
+                    <div class="numero-diapo">080</div>
+                    <audio id="audio-158" src="audios/audio_158.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-159">
+                    <div class="texto-esp-doble">LOS CUATRO REYES CELESTIALES. Protectores del Dharma.</div>
+                    <div class="texto-zh">四大天王一护法天神的特种部队</div>
+                    <div class="numero-diapo">080-B</div>
+                    <audio id="audio-159" src="audios/audio_158.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-160">
+                    <div class="texto-esp-solo">El Rey Celestial del Este sostiene un laúd sin cuerdas.</div>
+                    <div class="numero-diapo">081</div>
+                    <audio id="audio-160" src="audios/audio_160.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-161">
+                    <div class="texto-esp-doble">El Rey Celestial del Este sostiene un laúd sin cuerdas.</div>
+                    <div class="texto-zh">东方持国天王 | 手持无弦琵琶，</div>
+                    <div class="numero-diapo">081-B</div>
+                    <audio id="audio-161" src="audios/audio_160.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-162">
+                    <div class="texto-esp-solo">La ausencia de cuerdas hace referencia a la forma invisible de nuestro corazón.</div>
+                    <div class="numero-diapo">082</div>
+                    <audio id="audio-162" src="audios/audio_162.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-163">
+                    <div class="texto-esp-doble">La ausencia de cuerdas hace referencia a la forma invisible de nuestro corazón.</div>
+                    <div class="texto-zh">弦代表不可见的心性。</div>
+                    <div class="numero-diapo">082-B</div>
+                    <audio id="audio-163" src="audios/audio_162.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-164">
+                    <div class="texto-esp-solo">Simbología: Las cuerdas del corazón siempre deben tensarse en la medida justa, ni demasiado flojas ni demasiado apretadas.</div>
+                    <div class="numero-diapo">083</div>
+                    <audio id="audio-164" src="audios/audio_164.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-165">
+                    <div class="texto-esp-doble">Simbología: Las cuerdas del corazón siempre deben tensarse en la medida justa, ni demasiado flojas ni demasiado apretadas.</div>
+                    <div class="texto-zh">寓意：心弦应当时时保持中道，不可过松过紧。</div>
+                    <div class="numero-diapo">083-B</div>
+                    <audio id="audio-165" src="audios/audio_164.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-166">
+                    <div class="texto-esp-solo">El Rey Celestial del Sur sostiene una espada afilada que representa la sabiduría.</div>
+                    <div class="numero-diapo">084</div>
+                    <audio id="audio-166" src="audios/audio_166.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-167">
+                    <div class="texto-esp-doble">El Rey Celestial del Sur sostiene una espada afilada que representa la sabiduría.</div>
+                    <div class="texto-zh">南方增长天王 | 手持利剑，利剑代表智慧。</div>
+                    <div class="numero-diapo">084-B</div>
+                    <audio id="audio-167" src="audios/audio_166.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-168">
+                    <div class="texto-esp-solo">Simbología: Usa la espada de la sabiduría para acabar con tus preocupaciones.</div>
+                    <div class="numero-diapo">085</div>
+                    <audio id="audio-168" src="audios/audio_168.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-169">
+                    <div class="texto-esp-doble">Simbología: Usa la espada de la sabiduría para acabar con tus preocupaciones.</div>
+                    <div class="texto-zh">寓意：用智慧的宝剑斩断烦恼，</div>
+                    <div class="numero-diapo">085-B</div>
+                    <audio id="audio-169" src="audios/audio_168.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-170">
+                    <div class="texto-esp-solo">Y hacer que la conciencia crezca sin límites.</div>
+                    <div class="numero-diapo">086</div>
+                    <audio id="audio-170" src="audios/audio_170.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-171">
+                    <div class="texto-esp-doble">Y hacer que la conciencia crezca sin límites.</div>
+                    <div class="texto-zh">令觉悟念念增长。</div>
+                    <div class="numero-diapo">086-B</div>
+                    <audio id="audio-171" src="audios/audio_170.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-172">
+                    <div class="texto-esp-solo">El Rey Celestial del Oeste sostiene un dragón o una serpiente en una mano, lo que representa el cambio.</div>
+                    <div class="numero-diapo">087</div>
+                    <audio id="audio-172" src="audios/audio_172.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-173">
+                    <div class="texto-esp-doble">El Rey Celestial del Oeste sostiene un dragón o una serpiente en una mano, lo que representa el cambio.</div>
+                    <div class="texto-zh">西方广目天王 | 一手持龙或蛇，代表多变；</div>
+                    <div class="numero-diapo">087-B</div>
+                    <audio id="audio-173" src="audios/audio_172.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-174">
+                    <div class="texto-esp-solo">Sostiene una perla en la otra, que representa la invariabilidad.</div>
+                    <div class="numero-diapo">088</div>
+                    <audio id="audio-174" src="audios/audio_174.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-175">
+                    <div class="texto-esp-doble">Sostiene una perla en la otra, que representa la invariabilidad.</div>
+                    <div class="texto-zh">一手持明珠，代表不变。</div>
+                    <div class="numero-diapo">088-B</div>
+                    <audio id="audio-175" src="audios/audio_174.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-176">
+                    <div class="texto-esp-solo">Simbología: Al observar el cambio constante de los fenómenos sociales.</div>
+                    <div class="numero-diapo">089</div>
+                    <audio id="audio-176" src="audios/audio_176.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-177">
+                    <div class="texto-esp-doble">Simbología: Al observar el cambio constante de los fenómenos sociales.</div>
+                    <div class="texto-zh">寓意：观察瞬息万变的社会现象时，</div>
+                    <div class="numero-diapo">089-B</div>
+                    <audio id="audio-177" src="audios/audio_176.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-178">
+                    <div class="texto-esp-solo">Hay que tener en cuenta los principios y puntos de vista correctos e invariables del corazón.</div>
+                    <div class="numero-diapo">090</div>
+                    <audio id="audio-178" src="audios/audio_178.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-179">
+                    <div class="texto-esp-doble">Hay que tener en cuenta los principios y puntos de vista correctos e invariables del corazón.</div>
+                    <div class="texto-zh">心中要时刻保持不动的原则和正见。</div>
+                    <div class="numero-diapo">090-B</div>
+                    <audio id="audio-179" src="audios/audio_178.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-180">
+                    <div class="texto-esp-solo">El Rey Celestial del Norte sostiene un paraguas en una mano, lo que representa protección.</div>
+                    <div class="numero-diapo">091</div>
+                    <audio id="audio-180" src="audios/audio_180.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-181">
+                    <div class="texto-esp-doble">El Rey Celestial del Norte sostiene un paraguas en una mano, lo que representa protección.</div>
+                    <div class="texto-zh">北方多闻天王 | 一手持伞盖，代表防护；</div>
+                    <div class="numero-diapo">091-B</div>
+                    <audio id="audio-181" src="audios/audio_180.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-182">
+                    <div class="texto-esp-solo">Sostiene un armiño en la otra, que representa almacenamiento.</div>
+                    <div class="numero-diapo">092</div>
+                    <audio id="audio-182" src="audios/audio_182.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-183">
+                    <div class="texto-esp-doble">Sostiene un armiño en la otra, que representa almacenamiento.</div>
+                    <div class="texto-zh">一手持银鼠代表储存。</div>
+                    <div class="numero-diapo">092-B</div>
+                    <audio id="audio-183" src="audios/audio_182.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-184">
+                    <div class="texto-esp-solo">Simbología: En el camino del aprendizaje hay que proteger nuestros pensamientos rectos de las perturbaciones externas.</div>
+                    <div class="numero-diapo">093</div>
+                    <audio id="audio-184" src="audios/audio_184.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-185">
+                    <div class="texto-esp-doble">Simbología: En el camino del aprendizaje hay que proteger nuestros pensamientos rectos de las perturbaciones externas.</div>
+                    <div class="texto-zh">寓意：广学多闻的同时，要抵御干扰，守护正念，</div>
+                    <div class="numero-diapo">093-B</div>
+                    <audio id="audio-185" src="audios/audio_184.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-186">
+                    <div class="texto-esp-solo">Al mismo tiempo, hay que absorber el buen conocimiento,</div>
+                    <div class="numero-diapo">094</div>
+                    <audio id="audio-186" src="audios/audio_186.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-187">
+                    <div class="texto-esp-doble">Al mismo tiempo, hay que absorber el buen conocimiento,</div>
+                    <div class="texto-zh">吸收智慧的意见，</div>
+                    <div class="numero-diapo">094-B</div>
+                    <audio id="audio-187" src="audios/audio_186.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-188">
+                    <div class="texto-esp-solo">y acumularlo como la gran riqueza de la vida.</div>
+                    <div class="numero-diapo">095</div>
+                    <audio id="audio-188" src="audios/audio_188.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-189">
+                    <div class="texto-esp-doble">y acumularlo como la gran riqueza de la vida.</div>
+                    <div class="texto-zh">这样人生的财富才会渐渐增长。</div>
+                    <div class="numero-diapo">095-B</div>
+                    <audio id="audio-189" src="audios/audio_188.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-190">
+                    <div class="texto-esp-solo">SALA MAHAVIRA O GRAN SALA. Es la sala principal del templo budista chino.</div>
+                    <div class="numero-diapo">096</div>
+                    <audio id="audio-190" src="audios/audio_190.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-191">
+                    <div class="texto-esp-doble">SALA MAHAVIRA O GRAN SALA. Es la sala principal del templo budista chino.</div>
+                    <div class="texto-zh">大雄宝殿——寺院最核心的殿堂</div>
+                    <div class="numero-diapo">096-B</div>
+                    <audio id="audio-191" src="audios/audio_190.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-192">
+                    <div class="texto-esp-solo">Su nombre chino Sala Da Xiong, hace referencia a la heroicidad de Buda.</div>
+                    <div class="numero-diapo">097</div>
+                    <audio id="audio-192" src="audios/audio_192.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-193">
+                    <div class="texto-esp-doble">Su nombre chino Sala Da Xiong, hace referencia a la heroicidad de Buda.</div>
+                    <div class="texto-zh">大雄，意为大英雄。</div>
+                    <div class="numero-diapo">097-B</div>
+                    <audio id="audio-193" src="audios/audio_192.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-194">
+                    <div class="texto-esp-solo">Quien domina por completo los problemas internos, y es más valeroso que miles de ejércitos.</div>
+                    <div class="numero-diapo">098</div>
+                    <audio id="audio-194" src="audios/audio_194.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-195">
+                    <div class="texto-esp-doble">Quien domina por completo los problemas internos, y es más valeroso que miles de ejércitos.</div>
+                    <div class="texto-zh">佛能彻底降伏内心的烦恼。</div>
+                    <div class="numero-diapo">098-B</div>
+                    <audio id="audio-195" src="audios/audio_194.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-196">
+                    <div class="texto-esp-solo">El Buda Sakyamuni está consagrado en el centro de la sala principal.</div>
+                    <div class="numero-diapo">099</div>
+                    <audio id="audio-196" src="audios/audio_196.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-197">
+                    <div class="texto-esp-doble">El Buda Sakyamuni está consagrado en el centro de la sala principal.</div>
+                    <div class="texto-zh">大殿中间供奉释迦牟尼佛，</div>
+                    <div class="numero-diapo">099-B</div>
+                    <audio id="audio-197" src="audios/audio_196.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-198">
+                    <div class="texto-esp-solo">Y el Buda de la Medicina y el Buda Amitabha suelen estar consagrados en ambos lados.</div>
+                    <div class="numero-diapo">100</div>
+                    <audio id="audio-198" src="audios/audio_198.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-199">
+                    <div class="texto-esp-doble">Y el Buda de la Medicina y el Buda Amitabha suelen estar consagrados en ambos lados.</div>
+                    <div class="texto-zh">两侧通常供奉药师佛和阿弥陀佛，</div>
+                    <div class="numero-diapo">100-B</div>
+                    <audio id="audio-199" src="audios/audio_198.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-200">
+                    <div class="texto-esp-solo">El Bodhisattva Avalokitesvara está consagrado en la parte posterior.</div>
+                    <div class="numero-diapo">101</div>
+                    <audio id="audio-200" src="audios/audio_200.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-201">
+                    <div class="texto-esp-doble">El Bodhisattva Avalokitesvara está consagrado en la parte posterior.</div>
+                    <div class="texto-zh">后面供奉观世音菩萨，</div>
+                    <div class="numero-diapo">101-B</div>
+                    <audio id="audio-201" src="audios/audio_200.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-202">
+                    <div class="texto-esp-solo">Y los dieciocho Arhats están consagrados en el área circundante.</div>
+                    <div class="numero-diapo">102</div>
+                    <audio id="audio-202" src="audios/audio_202.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-203">
+                    <div class="texto-esp-doble">Y los dieciocho Arhats están consagrados en el área circundante.</div>
+                    <div class="texto-zh">周边则供奉十八罗汉等。</div>
+                    <div class="numero-diapo">102-B</div>
+                    <audio id="audio-203" src="audios/audio_202.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-204">
+                    <div class="texto-esp-solo">La Gran Sala, el museo de Buda Sakyamuni.</div>
+                    <div class="numero-diapo">103</div>
+                    <audio id="audio-204" src="audios/audio_204.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-205">
+                    <div class="texto-esp-doble">La Gran Sala, el museo de Buda Sakyamuni.</div>
+                    <div class="texto-zh">大雄宝殿——释迦牟尼佛博物馆</div>
+                    <div class="numero-diapo">103-B</div>
+                    <audio id="audio-205" src="audios/audio_204.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-206">
+                    <div class="texto-esp-solo">BUDA SAKYAMUNI</div>
+                    <div class="numero-diapo">104</div>
+                    <audio id="audio-206" src="audios/audio_206.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-207">
+                    <div class="texto-esp-doble">BUDA SAKYAMUNI</div>
+                    <div class="texto-zh">释迦牟尼佛</div>
+                    <div class="numero-diapo">104-B</div>
+                    <audio id="audio-207" src="audios/audio_206.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-208">
+                    <div class="texto-esp-solo">Tras su iluminación, Buda predicó sus enseñanzas durante 49 años.</div>
+                    <div class="numero-diapo">105</div>
+                    <audio id="audio-208" src="audios/audio_208.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-209">
+                    <div class="texto-esp-doble">Tras su iluminación, Buda predicó sus enseñanzas durante 49 años.</div>
+                    <div class="texto-zh">佛觉悟之后，讲经说法 49 年，</div>
+                    <div class="numero-diapo">105-B</div>
+                    <audio id="audio-209" src="audios/audio_208.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-210">
+                    <div class="texto-esp-solo">Divulgando la verdad del universo y de la vida a todos los seres.</div>
+                    <div class="numero-diapo">106</div>
+                    <audio id="audio-210" src="audios/audio_210.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-211">
+                    <div class="texto-esp-doble">Divulgando la verdad del universo y de la vida a todos los seres.</div>
+                    <div class="texto-zh">为一切有缘众生宣说宇宙人生的真相，</div>
+                    <div class="numero-diapo">106-B</div>
+                    <audio id="audio-211" src="audios/audio_210.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-212">
+                    <div class="texto-esp-solo">Es el mayor educador de la historia de la humanidad.</div>
+                    <div class="numero-diapo">107</div>
+                    <audio id="audio-212" src="audios/audio_212.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-213">
+                    <div class="texto-esp-doble">Es el mayor educador de la historia de la humanidad.</div>
+                    <div class="texto-zh">传授离苦得乐之法,是人类历史上最伟大的义务教育工作者。</div>
+                    <div class="numero-diapo">107-B</div>
+                    <audio id="audio-213" src="audios/audio_212.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-214">
+                    <div class="texto-esp-solo">Su enseñanza se centraba en el método para librarse del sufrimiento y obtener la felicidad.</div>
+                    <div class="numero-diapo">108</div>
+                    <audio id="audio-214" src="audios/audio_214.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-215">
+                    <div class="texto-esp-doble">Su enseñanza se centraba en el método para librarse del sufrimiento y obtener la felicidad.</div>
+                    <div class="texto-zh">以传授离苦得乐之法为核心。</div>
+                    <div class="numero-diapo">108-B</div>
+                    <audio id="audio-215" src="audios/audio_214.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-216">
+                    <div class="texto-esp-solo">Por lo tanto, los discípulos de generaciones posteriores honraron al Buda Gautama como el Maestro Original.</div>
+                    <div class="numero-diapo">109</div>
+                    <audio id="audio-216" src="audios/audio_216.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-217">
+                    <div class="texto-esp-doble">Por lo tanto, los discípulos de generaciones posteriores honraron al Buda Gautama como el Maestro Original.</div>
+                    <div class="texto-zh">因此后世弟子将佛陀尊称为本师释迦牟尼佛。</div>
+                    <div class="numero-diapo">109-B</div>
+                    <audio id="audio-217" src="audios/audio_216.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-218">
+                    <div class="texto-esp-solo">Maestro Original Buda Sakyamuni.</div>
+                    <div class="numero-diapo">110</div>
+                    <audio id="audio-218" src="audios/audio_218.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-219">
+                    <div class="texto-esp-doble">Maestro Original Buda Sakyamuni.</div>
+                    <div class="texto-zh">本师释迦牟尼佛</div>
+                    <div class="numero-diapo">110-B</div>
+                    <audio id="audio-219" src="audios/audio_218.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-220">
+                    <div class="texto-esp-solo">Bajo el árbol bodhi, Buda está completamente iluminado.</div>
+                    <div class="numero-diapo">111</div>
+                    <audio id="audio-220" src="audios/audio_220.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-221">
+                    <div class="texto-esp-doble">Bajo el árbol bodhi, Buda está completamente iluminado.</div>
+                    <div class="texto-zh">在菩提树下，佛陀彻底觉悟，</div>
+                    <div class="numero-diapo">111-B</div>
+                    <audio id="audio-221" src="audios/audio_220.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-222">
+                    <div class="texto-esp-solo">Le explica al mundo que todo ser sintiente tiene naturaleza de Buda.</div>
+                    <div class="numero-diapo">112</div>
+                    <audio id="audio-222" src="audios/audio_222.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-223">
+                    <div class="texto-esp-doble">Le explica al mundo que todo ser sintiente tiene naturaleza de Buda.</div>
+                    <div class="texto-zh">并向世人说明：每个众生都有佛性，</div>
+                    <div class="numero-diapo">112-B</div>
+                    <audio id="audio-223" src="audios/audio_222.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-224">
+                    <div class="texto-esp-solo">Y que son iguales entre sí.</div>
+                    <div class="numero-diapo">113</div>
+                    <audio id="audio-224" src="audios/audio_224.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-225">
+                    <div class="texto-esp-doble">Y que son iguales entre sí.</div>
+                    <div class="texto-zh">而且彼此平等。</div>
+                    <div class="numero-diapo">113-B</div>
+                    <audio id="audio-225" src="audios/audio_224.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-226">
+                    <div class="texto-esp-solo">PERFIL DE BUDA SAKYAMUNI</div>
+                    <div class="numero-diapo">114</div>
+                    <audio id="audio-226" src="audios/audio_226.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-227">
+                    <div class="texto-esp-doble">PERFIL DE BUDA SAKYAMUNI</div>
+                    <div class="texto-zh">释迦牟尼佛小档案</div>
+                    <div class="numero-diapo">114-B</div>
+                    <audio id="audio-227" src="audios/audio_226.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-228">
+                    <div class="texto-esp-solo">Nacido en el 623 a.C., bajo el nombre de Siddhartha Gautama, fue un príncipe de Kapilavastu.</div>
+                    <div class="numero-diapo">115</div>
+                    <audio id="audio-228" src="audios/audio_228.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-229">
+                    <div class="texto-esp-doble">Nacido en el 623 a.C., bajo el nombre de Siddhartha Gautama, fue un príncipe de Kapilavastu.</div>
+                    <div class="texto-zh">公元前623年,出生于蓝毗尼花园,是迦毗罗卫国太子, 原名乔达摩·悉达多;</div>
+                    <div class="numero-diapo">115-B</div>
+                    <audio id="audio-229" src="audios/audio_228.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-230">
+                    <div class="texto-esp-solo">A los 19 años abandonó su trono y se hizo monje para buscar la verdad de la existencia.</div>
+                    <div class="numero-diapo">116</div>
+                    <audio id="audio-230" src="audios/audio_230.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-231">
+                    <div class="texto-esp-doble">A los 19 años abandonó su trono y se hizo monje para buscar la verdad de la existencia.</div>
+                    <div class="texto-zh">19岁,为寻求生命的真相弃王位出家;</div>
+                    <div class="numero-diapo">116-B</div>
+                    <audio id="audio-231" src="audios/audio_230.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-232">
+                    <div class="texto-esp-solo">De los 19 a los 30 años, hizo cinco años de estudio meditativo y seis de ascetismo.</div>
+                    <div class="numero-diapo">117</div>
+                    <audio id="audio-232" src="audios/audio_232.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-233">
+                    <div class="texto-esp-doble">De los 19 a los 30 años, hizo cinco años de estudio meditativo y seis de ascetismo.</div>
+                    <div class="texto-zh">19-30岁,经历五年参学和六年苦行;</div>
+                    <div class="numero-diapo">117-B</div>
+                    <audio id="audio-233" src="audios/audio_232.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-234">
+                    <div class="texto-esp-solo">A la edad de 30 años se sentó en silencio bajo el árbol bodhi durante 49 días.</div>
+                    <div class="numero-diapo">118</div>
+                    <audio id="audio-234" src="audios/audio_234.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-235">
+                    <div class="texto-esp-doble">A la edad de 30 años se sentó en silencio bajo el árbol bodhi durante 49 días.</div>
+                    <div class="texto-zh">30岁,菩提树下静坐49日,</div>
+                    <div class="numero-diapo">118-B</div>
+                    <audio id="audio-235" src="audios/audio_234.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-236">
+                    <div class="texto-esp-solo">Vio las estrellas por la noche y se iluminó por completo, alcanzando la budeidad perfecta.</div>
+                    <div class="numero-diapo">119</div>
+                    <audio id="audio-236" src="audios/audio_236.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-237">
+                    <div class="texto-esp-doble">Vio las estrellas por la noche y se iluminó por completo, alcanzando la budeidad perfecta.</div>
+                    <div class="texto-zh">夜睹明星大彻大悟,证得圆满佛果;</div>
+                    <div class="numero-diapo">119-B</div>
+                    <audio id="audio-237" src="audios/audio_236.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-238">
+                    <div class="texto-esp-solo">De los 30 años hasta los 79 años, predicó sus enseñanzas en toda la India durante 49 años.</div>
+                    <div class="numero-diapo">120</div>
+                    <audio id="audio-238" src="audios/audio_238.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-239">
+                    <div class="texto-esp-doble">De los 30 años hasta los 79 años, predicó sus enseñanzas en toda la India durante 49 años.</div>
+                    <div class="texto-zh">30-79岁,在全印度讲经说法49年,</div>
+                    <div class="numero-diapo">120-B</div>
+                    <audio id="audio-239" src="audios/audio_238.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-240">
+                    <div class="texto-esp-solo">Predicó sobre la verdad de la vida en el universo y la forma de deshacerse del sufrimiento y alcanzar la felicidad para todos los seres sintientes.</div>
+                    <div class="numero-diapo">121</div>
+                    <audio id="audio-240" src="audios/audio_240.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-241">
+                    <div class="texto-esp-doble">Predicó sobre la verdad de la vida en el universo y la forma de deshacerse del sufrimiento y alcanzar la felicidad para todos los seres sintientes.</div>
+                    <div class="texto-zh">为一切有缘众生宣说宇宙人生的真相和离苦得乐之法。</div>
+                    <div class="numero-diapo">121-B</div>
+                    <audio id="audio-241" src="audios/audio_240.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-242">
+                    <div class="texto-esp-solo">En 543 a.C. falleció a los 80 años en Kushinagar. El calendario budista comienza a partir del año en que falleció Buda.</div>
+                    <div class="numero-diapo">122</div>
+                    <audio id="audio-242" src="audios/audio_242.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-243">
+                    <div class="texto-esp-doble">En 543 a.C. falleció a los 80 años en Kushinagar. El calendario budista comienza a partir del año en que falleció Buda.</div>
+                    <div class="texto-zh">公元前543年,在拘尸那罗娑罗双树间涅槃,住世80年, 佛历即从佛陀涅槃这一年算起。</div>
+                    <div class="numero-diapo">122-B</div>
+                    <audio id="audio-243" src="audios/audio_242.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-244">
+                    <div class="texto-esp-solo">BUDA DE LA MEDICINA. Mentor del mundo de la Tierra Pura del Este.</div>
+                    <div class="numero-diapo">123</div>
+                    <audio id="audio-244" src="audios/audio_244.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-245">
+                    <div class="texto-esp-doble">BUDA DE LA MEDICINA. Mentor del mundo de la Tierra Pura del Este.</div>
+                    <div class="texto-zh">药师佛——东方琉璃世界导师</div>
+                    <div class="numero-diapo">123-B</div>
+                    <audio id="audio-245" src="audios/audio_244.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-246">
+                    <div class="texto-esp-solo">Ubicado en el lado este del Buda Sakyamuni, sostiene un frasco de medicina.</div>
+                    <div class="numero-diapo">124</div>
+                    <audio id="audio-246" src="audios/audio_246.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-247">
+                    <div class="texto-esp-doble">Ubicado en el lado este del Buda Sakyamuni, sostiene un frasco de medicina.</div>
+                    <div class="texto-zh">位于释迦牟尼佛东侧，手持药钵。</div>
+                    <div class="numero-diapo">124-B</div>
+                    <audio id="audio-247" src="audios/audio_246.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-248">
+                    <div class="texto-esp-solo">El amanecer del sol por el este simboliza el hermoso comienzo de la vida.</div>
+                    <div class="numero-diapo">125</div>
+                    <audio id="audio-248" src="audios/audio_248.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-249">
+                    <div class="texto-esp-doble">El amanecer del sol por el este simboliza el hermoso comienzo de la vida.</div>
+                    <div class="texto-zh">东方是日出的方位，象征生命美好的开始。</div>
+                    <div class="numero-diapo">125-B</div>
+                    <audio id="audio-249" src="audios/audio_248.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-250">
+                    <div class="texto-esp-solo">Toda preocupación puede curarse con la medicina del budismo.</div>
+                    <div class="numero-diapo">126</div>
+                    <audio id="audio-250" src="audios/audio_250.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-251">
+                    <div class="texto-esp-doble">Toda preocupación puede curarse con la medicina del budismo.</div>
+                    <div class="texto-zh">一切烦恼病 都可以用佛法妙药来治疗</div>
+                    <div class="numero-diapo">126-B</div>
+                    <audio id="audio-251" src="audios/audio_250.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-252">
+                    <div class="texto-esp-solo">BUDA AMITABHA. Maestro de la Tierra Pura del Oeste.</div>
+                    <div class="numero-diapo">127</div>
+                    <audio id="audio-252" src="audios/audio_252.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-253">
+                    <div class="texto-esp-doble">BUDA AMITABHA. Maestro de la Tierra Pura del Oeste.</div>
+                    <div class="texto-zh">阿弥陀佛——西方极乐世界导师</div>
+                    <div class="numero-diapo">127-B</div>
+                    <audio id="audio-253" src="audios/audio_252.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-254">
+                    <div class="texto-esp-solo">Ubicado en el lado oeste del Buda Sakyamuni, sostiene una flor de loto.</div>
+                    <div class="numero-diapo">128</div>
+                    <audio id="audio-254" src="audios/audio_254.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-255">
+                    <div class="texto-esp-doble">Ubicado en el lado oeste del Buda Sakyamuni, sostiene una flor de loto.</div>
+                    <div class="texto-zh">位于释迦牟尼佛西侧，手持莲花。</div>
+                    <div class="numero-diapo">128-B</div>
+                    <audio id="audio-255" src="audios/audio_254.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-256">
+                    <div class="texto-esp-solo">La puesta de sol por el oeste simboliza el destino de la vida.</div>
+                    <div class="numero-diapo">129</div>
+                    <audio id="audio-256" src="audios/audio_256.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-257">
+                    <div class="texto-esp-doble">La puesta de sol por el oeste simboliza el destino de la vida.</div>
+                    <div class="texto-zh">西方是日落的方位，象征生命的圆满归宿。</div>
+                    <div class="numero-diapo">129-B</div>
+                    <audio id="audio-257" src="audios/audio_256.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-258">
+                    <div class="texto-esp-solo">En sánscrito, Amitabha significa inconmensurable.</div>
+                    <div class="numero-diapo">130</div>
+                    <audio id="audio-258" src="audios/audio_258.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-259">
+                    <div class="texto-esp-doble">En sánscrito, Amitabha significa inconmensurable.</div>
+                    <div class="texto-zh">梵语阿弥陀是无量的意思,</div>
+                    <div class="numero-diapo">130-B</div>
+                    <audio id="audio-259" src="audios/audio_258.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-260">
+                    <div class="texto-esp-solo">Lo que significa luz y vida infinitas.</div>
+                    <div class="numero-diapo">131</div>
+                    <audio id="audio-260" src="audios/audio_260.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-261">
+                    <div class="texto-esp-doble">Lo que significa luz y vida infinitas.</div>
+                    <div class="texto-zh">引申为无量光、无量寿。</div>
+                    <div class="numero-diapo">131-B</div>
+                    <audio id="audio-261" src="audios/audio_260.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-262">
+                    <div class="texto-esp-solo">Luz infinita Vida Infinita</div>
+                    <div class="numero-diapo">132</div>
+                    <audio id="audio-262" src="audios/audio_262.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-263">
+                    <div class="texto-esp-doble">Luz infinita Vida Infinita</div>
+                    <div class="texto-zh">无量光 无量寿</div>
+                    <div class="numero-diapo">132-B</div>
+                    <audio id="audio-263" src="audios/audio_262.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-264">
+                    <div class="texto-esp-solo">A través de la práctica budista</div>
+                    <div class="numero-diapo">133</div>
+                    <audio id="audio-264" src="audios/audio_264.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-265">
+                    <div class="texto-esp-doble">A través de la práctica budista</div>
+                    <div class="texto-zh">每一个生命都可以通过修行</div>
+                    <div class="numero-diapo">133-B</div>
+                    <audio id="audio-265" src="audios/audio_264.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-266">
+                    <div class="texto-esp-solo">todo ser puede liberarse de la cuestión de la vida y la muerte</div>
+                    <div class="numero-diapo">134</div>
+                    <audio id="audio-266" src="audios/audio_266.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-267">
+                    <div class="texto-esp-doble">todo ser puede liberarse de la cuestión de la vida y la muerte</div>
+                    <div class="texto-zh">突破生死的困扰，</div>
+                    <div class="numero-diapo">134-B</div>
+                    <audio id="audio-267" src="audios/audio_266.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-268">
+                    <div class="texto-esp-solo">y volver a la luz y felicidad infinitas.</div>
+                    <div class="numero-diapo">135</div>
+                    <audio id="audio-268" src="audios/audio_268.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-269">
+                    <div class="texto-esp-doble">y volver a la luz y felicidad infinitas.</div>
+                    <div class="texto-zh">回归永恒的光明幸福</div>
+                    <div class="numero-diapo">135-B</div>
+                    <audio id="audio-269" src="audios/audio_268.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-270">
+                    <div class="texto-esp-solo">BODHISATTVA AVALOKITESVARA</div>
+                    <div class="numero-diapo">136</div>
+                    <audio id="audio-270" src="audios/audio_270.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-271">
+                    <div class="texto-esp-doble">BODHISATTVA AVALOKITESVARA</div>
+                    <div class="texto-zh">观世音菩萨——大慈大悲和救苦救难的代表</div>
+                    <div class="numero-diapo">136-B</div>
+                    <audio id="audio-271" src="audios/audio_270.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-272">
+                    <div class="texto-esp-solo">El representante de la gran compasión y la salvación.</div>
+                    <div class="numero-diapo">137</div>
+                    <audio id="audio-272" src="audios/audio_272.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-273">
+                    <div class="texto-esp-doble">El representante de la gran compasión y la salvación.</div>
+                    <div class="texto-zh">观世音菩萨——大慈大悲和救苦救难的代表</div>
+                    <div class="numero-diapo">137-B</div>
+                    <audio id="audio-273" src="audios/audio_272.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-274">
+                    <div class="texto-esp-solo">Usualmente ubicado detrás de Buda Sakyamuni. Nos dice que la compasión es la intención interna del Buda y lo que nos da confianza para convertirnos en Buda.</div>
+                    <div class="numero-diapo">138</div>
+                    <audio id="audio-274" src="audios/audio_274.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-275">
+                    <div class="texto-esp-doble">Usualmente ubicado detrás de Buda Sakyamuni. Nos dice que la compasión es la intención interna del Buda y lo que nos da confianza para convertirnos en Buda.</div>
+                    <div class="texto-zh">通常位于释迦牟尼佛身后, 既表明慈悲是佛内在的用心, 也显示慈悲是成佛的依靠。</div>
+                    <div class="numero-diapo">138-B</div>
+                    <audio id="audio-275" src="audios/audio_274.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-276">
+                    <div class="texto-esp-solo">Bodhisattva Avalokitesvara.</div>
+                    <div class="numero-diapo">139</div>
+                    <audio id="audio-276" src="audios/audio_276.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-277">
+                    <div class="texto-esp-doble">Bodhisattva Avalokitesvara.</div>
+                    <div class="texto-zh">观世音菩萨</div>
+                    <div class="numero-diapo">139-B</div>
+                    <audio id="audio-277" src="audios/audio_276.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-278">
+                    <div class="texto-esp-solo">Miles de oraciones, miles de respuestas.</div>
+                    <div class="numero-diapo">140</div>
+                    <audio id="audio-278" src="audios/audio_278.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-279">
+                    <div class="texto-esp-doble">Miles de oraciones, miles de respuestas.</div>
+                    <div class="texto-zh">千处祈求千处应</div>
+                    <div class="numero-diapo">140-B</div>
+                    <audio id="audio-279" src="audios/audio_278.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-280">
+                    <div class="texto-esp-solo">¿Cómo salva a los seres del sufrimiento el Bodhisattva Avalokitesvara?</div>
+                    <div class="numero-diapo">141</div>
+                    <audio id="audio-280" src="audios/audio_280.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-281">
+                    <div class="texto-esp-doble">¿Cómo salva a los seres del sufrimiento el Bodhisattva Avalokitesvara?</div>
+                    <div class="texto-zh">观世音菩萨是怎样救苦救难的?</div>
+                    <div class="numero-diapo">141-B</div>
+                    <audio id="audio-281" src="audios/audio_280.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-282">
+                    <div class="texto-esp-solo">Los bodhisattvas usan varios métodos para inspirar la compasión inherente de todos los seres vivos.</div>
+                    <div class="numero-diapo">142</div>
+                    <audio id="audio-282" src="audios/audio_282.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-283">
+                    <div class="texto-esp-doble">Los bodhisattvas usan varios métodos para inspirar la compasión inherente de todos los seres vivos.</div>
+                    <div class="texto-zh">菩萨以各种方法启发众生心性本有的慈悲。</div>
+                    <div class="numero-diapo">142-B</div>
+                    <audio id="audio-283" src="audios/audio_282.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-284">
+                    <div class="texto-esp-solo">Cuando despierta la compasión, el sentimiento de sufrimiento se deshará de forma natural.</div>
+                    <div class="numero-diapo">143</div>
+                    <audio id="audio-284" src="audios/audio_284.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-285">
+                    <div class="texto-esp-doble">Cuando despierta la compasión, el sentimiento de sufrimiento se deshará de forma natural.</div>
+                    <div class="texto-zh">当慈悲心生起, 苦难的感受就会自然化解,</div>
+                    <div class="numero-diapo">143-B</div>
+                    <audio id="audio-285" src="audios/audio_284.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-286">
+                    <div class="texto-esp-solo">Este es el principio de la compasión para salvarnos del sufrimiento.</div>
+                    <div class="numero-diapo">144</div>
+                    <audio id="audio-286" src="audios/audio_286.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-287">
+                    <div class="texto-esp-doble">Este es el principio de la compasión para salvarnos del sufrimiento.</div>
+                    <div class="texto-zh">这是慈悲救拔苦难的原理所在。</div>
+                    <div class="numero-diapo">144-B</div>
+                    <audio id="audio-287" src="audios/audio_286.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-288">
+                    <div class="texto-esp-solo">Una mirada compasiva sobre todos los seres.</div>
+                    <div class="numero-diapo">145</div>
+                    <audio id="audio-288" src="audios/audio_288.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-289">
+                    <div class="texto-esp-doble">Una mirada compasiva sobre todos los seres.</div>
+                    <div class="texto-zh">慈眼视众生</div>
+                    <div class="numero-diapo">145-B</div>
+                    <audio id="audio-289" src="audios/audio_288.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-290">
+                    <div class="texto-esp-solo">BODHISATTVA MANJUSRI. La gran sabiduría.</div>
+                    <div class="numero-diapo">146</div>
+                    <audio id="audio-290" src="audios/audio_290.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-291">
+                    <div class="texto-esp-doble">BODHISATTVA MANJUSRI. La gran sabiduría.</div>
+                    <div class="texto-zh">文殊菩萨——智慧第一</div>
+                    <div class="numero-diapo">146-B</div>
+                    <audio id="audio-291" src="audios/audio_290.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-292">
+                    <div class="texto-esp-solo">El Bodhisattva Manjusri, ubicado a la izquierda del Buda Sakyamuni, monta un león verde y sostiene una espada en su mano.</div>
+                    <div class="numero-diapo">147</div>
+                    <audio id="audio-292" src="audios/audio_292.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-293">
+                    <div class="texto-esp-doble">El Bodhisattva Manjusri, ubicado a la izquierda del Buda Sakyamuni, monta un león verde y sostiene una espada en su mano.</div>
+                    <div class="texto-zh">文殊菩萨骑青狮,手持慧剑,位于释迦牟尼佛左侧。</div>
+                    <div class="numero-diapo">147-B</div>
+                    <audio id="audio-293" src="audios/audio_292.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-294">
+                    <div class="texto-esp-solo">La espada representa la sabiduría como herramienta para cortar las preocupaciones, y el león verde simboliza la gran sabiduría que ahuyenta todos los problemas.</div>
+                    <div class="numero-diapo">148</div>
+                    <audio id="audio-294" src="audios/audio_294.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-295">
+                    <div class="texto-esp-doble">La espada representa la sabiduría como herramienta para cortar las preocupaciones, y el león verde simboliza la gran sabiduría que ahuyenta todos los problemas.</div>
+                    <div class="texto-zh">慧剑是斩断烦恼的工具,青狮象征大智慧,令一切烦恼丧胆。</div>
+                    <div class="numero-diapo">148-B</div>
+                    <audio id="audio-295" src="audios/audio_294.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-296">
+                    <div class="texto-esp-solo">BODHISATTVA SAMANTABHADRA. Los grandes deseos.</div>
+                    <div class="numero-diapo">149</div>
+                    <audio id="audio-296" src="audios/audio_296.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-297">
+                    <div class="texto-esp-doble">BODHISATTVA SAMANTABHADRA. Los grandes deseos.</div>
+                    <div class="texto-zh">普贤菩萨——行愿第一</div>
+                    <div class="numero-diapo">149-B</div>
+                    <audio id="audio-297" src="audios/audio_296.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-298">
+                    <div class="texto-esp-solo">El Bodhisattva Samantabhadra monta un elefante blanco con seis colmillos, en el lado derecho de Buda Sakyamuni.</div>
+                    <div class="numero-diapo">150</div>
+                    <audio id="audio-298" src="audios/audio_298.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-299">
+                    <div class="texto-esp-doble">El Bodhisattva Samantabhadra monta un elefante blanco con seis colmillos, en el lado derecho de Buda Sakyamuni.</div>
+                    <div class="texto-zh">普贤菩萨骑六牙白象,位于释迦牟尼佛右侧。</div>
+                    <div class="numero-diapo">150-B</div>
+                    <audio id="audio-299" src="audios/audio_298.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-300">
+                    <div class="texto-esp-solo">El elefante blanco es infinitamente poderoso, ya que simboliza la firmeza de un deseo que se pide y que va a cumplirse.</div>
+                    <div class="numero-diapo">151</div>
+                    <audio id="audio-300" src="audios/audio_300.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-301">
+                    <div class="texto-esp-doble">El elefante blanco es infinitamente poderoso, ya que simboliza la firmeza de un deseo que se pide y que va a cumplirse.</div>
+                    <div class="texto-zh">白象力大无穷,象征行愿力的坚固。</div>
+                    <div class="numero-diapo">151-B</div>
+                    <audio id="audio-301" src="audios/audio_300.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-302">
+                    <div class="texto-esp-solo">BODHISATTVA KSITIGARBHA. Interpreta la máxima piedad filial en el mundo de los grandes votos.</div>
+                    <div class="numero-diapo">152</div>
+                    <audio id="audio-302" src="audios/audio_302.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-303">
+                    <div class="texto-esp-doble">BODHISATTVA KSITIGARBHA. Interpreta la máxima piedad filial en el mundo de los grandes votos.</div>
+                    <div class="texto-zh">地藏菩萨——以大愿诠释人间至孝</div>
+                    <div class="numero-diapo">152-B</div>
+                    <audio id="audio-303" src="audios/audio_302.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-304">
+                    <div class="texto-esp-solo">Por lo general, los templos construyen una sala separada para el Bodhisattva Ksitigarbha.</div>
+                    <div class="numero-diapo">153</div>
+                    <audio id="audio-304" src="audios/audio_304.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-305">
+                    <div class="texto-esp-doble">Por lo general, los templos construyen una sala separada para el Bodhisattva Ksitigarbha.</div>
+                    <div class="texto-zh">通常寺院会单独为地藏菩萨建一个殿。</div>
+                    <div class="numero-diapo">153-B</div>
+                    <audio id="audio-305" src="audios/audio_304.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-306">
+                    <div class="texto-esp-solo">Este es un bodhisattva que se adentra en las clases bajas, y su trabajo principal es purificar el infierno.</div>
+                    <div class="numero-diapo">154</div>
+                    <audio id="audio-306" src="audios/audio_306.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-307">
+                    <div class="texto-esp-doble">Este es un bodhisattva que se adentra en las clases bajas, y su trabajo principal es purificar el infierno.</div>
+                    <div class="texto-zh">这是一位深入基层的菩萨,核心工作是净化地狱。</div>
+                    <div class="numero-diapo">154-B</div>
+                    <audio id="audio-307" src="audios/audio_306.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-308">
+                    <div class="texto-esp-solo">Si el infierno no está vacío, juro no convertirme en Buda.</div>
+                    <div class="numero-diapo">155</div>
+                    <audio id="audio-308" src="audios/audio_308.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-309">
+                    <div class="texto-esp-doble">Si el infierno no está vacío, juro no convertirme en Buda.</div>
+                    <div class="texto-zh">地狱不空,誓不成佛</div>
+                    <div class="numero-diapo">155-B</div>
+                    <audio id="audio-309" src="audios/audio_308.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-310">
+                    <div class="texto-esp-solo">LOS DIECIOCHO ARHATS</div>
+                    <div class="numero-diapo">156</div>
+                    <audio id="audio-310" src="audios/audio_310.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-311">
+                    <div class="texto-esp-doble">LOS DIECIOCHO ARHATS</div>
+                    <div class="texto-zh">十八罗汉</div>
+                    <div class="numero-diapo">156-B</div>
+                    <audio id="audio-311" src="audios/audio_310.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-312">
+                    <div class="texto-esp-solo">Los dieciocho Arhats son los primeros discípulos que siguieron a Buda Sakyamuni en la primera época del budismo.</div>
+                    <div class="numero-diapo">157</div>
+                    <audio id="audio-312" src="audios/audio_312.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-313">
+                    <div class="texto-esp-doble">Los dieciocho Arhats son los primeros discípulos que siguieron a Buda Sakyamuni en la primera época del budismo.</div>
+                    <div class="texto-zh">是当年常随佛学的出家弟子中自身修行已经达到解脱的圣者。</div>
+                    <div class="numero-diapo">157-B</div>
+                    <audio id="audio-313" src="audios/audio_312.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-314">
+                    <div class="texto-esp-solo">Han logrado la liberación por su propia práctica y ya no tienen preocupaciones ni aflicciones mundanas.</div>
+                    <div class="numero-diapo">158</div>
+                    <audio id="audio-314" src="audios/audio_314.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-315">
+                    <div class="texto-esp-doble">Han logrado la liberación por su propia práctica y ya no tienen preocupaciones ni aflicciones mundanas.</div>
+                    <div class="texto-zh">他们内不再为烦恼所困，外不再为遭遇所干扰。</div>
+                    <div class="numero-diapo">158-B</div>
+                    <audio id="audio-315" src="audios/audio_314.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-316">
+                    <div class="texto-esp-solo">Los dieciocho Arhats representan todos los ámbitos de la vida social,</div>
+                    <div class="numero-diapo">159</div>
+                    <audio id="audio-316" src="audios/audio_316.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-317">
+                    <div class="texto-esp-doble">Los dieciocho Arhats representan todos los ámbitos de la vida social,</div>
+                    <div class="texto-zh">十八罗汉代表了社会各行各业，</div>
+                    <div class="numero-diapo">159-B</div>
+                    <audio id="audio-317" src="audios/audio_316.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-318">
+                    <div class="texto-esp-solo">mostrando cómo no hay límites de acceso en el budismo.</div>
+                    <div class="numero-diapo">160</div>
+                    <audio id="audio-318" src="audios/audio_318.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-319">
+                    <div class="texto-esp-doble">mostrando cómo no hay límites de acceso en el budismo.</div>
+                    <div class="texto-zh">说明了学佛没有界限，</div>
+                    <div class="numero-diapo">160-B</div>
+                    <audio id="audio-319" src="audios/audio_318.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-320">
+                    <div class="texto-esp-solo">Todo el mundo puede usar la enseñanza budista para hacer crecer su propia sabiduría.</div>
+                    <div class="numero-diapo">161</div>
+                    <audio id="audio-320" src="audios/audio_320.mp3"></audio>
+                </div>
+                <div class="slide" id="slide-321">
+                    <div class="texto-esp-doble">Todo el mundo puede usar la enseñanza budista para hacer crecer su propia sabiduría.</div>
+                    <div class="texto-zh">每一个人都可以在不改变生活现状的情况下，用佛法来实现境界的升华。</div>
+                    <div class="numero-diapo">161-B</div>
+                    <audio id="audio-321" src="audios/audio_320.mp3"></audio>
+                </div>
+    </div>
+    
+    <div class="controls">
+        <button class="btn btn-nav" onclick="prevSlide()">⬅ Anterior</button>
+        <button class="btn btn-play" onclick="playAudio()">🔊 Reproducir</button>
+        <button class="btn btn-nav" onclick="nextSlide()">Siguiente ➡</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 322;
+
+        function showSlide(index) {
+            document.querySelectorAll('audio').forEach(a => { a.pause(); a.currentTime = 0; });
+            
+            let slides = document.querySelectorAll('.slide');
+            slides.forEach(s => s.classList.remove('active'));
+            if(slides[index]) slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        function playAudio() {
+            let audio = document.getElementById('audio-' + currentSlide);
+            if (audio && audio.src && audio.src !== window.location.href) {
+                audio.currentTime = 0;
+                audio.play().catch(e => console.log("Error reproduciendo audio:", e));
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') nextSlide();
+            else if (event.key === 'ArrowLeft') prevSlide();
+            else if (event.key === ' ' || event.key === 'Spacebar') {
+                event.preventDefault();
+                playAudio();
+            }
+        });
+
+        window.onload = () => showSlide(0);
+    </script>
+</body>
+</html>
